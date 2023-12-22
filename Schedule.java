@@ -42,15 +42,15 @@ class Scheduling {
 	static Stack<Job> JOBS;		// 儲存Jobs
 	private Scanner scanner;
 	
-	Scheduling(){
+	Scheduling(){	// class Scheduling 建構子
 		Timer = 0;
 		TWT = 0;
 		Count = 0;
 		JOBS = new Stack<Job>();
-		scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);	// reset properties
 		
-		System.out.print("Input processes:\t(End with 0 0 0)\n{Arrival Time} {Burst Time} {Priority num}\n"); 
-		while(true){
+		System.out.print("Input processes:\t(End with 0 0 0)\n{Arrival Time} {Burst Time} {Priority num}\n");
+		while(true){	// input Jobs
 			int a = 0, b = 0, c = 0;
 			
 			a = scanner.nextInt();
@@ -60,10 +60,10 @@ class Scheduling {
 			if (b == 0)
 				break;
 			Count++;
-			JOBS.add(new Job(Count, a, b, c));	
+			JOBS.add(new Job(Count, a, b, c));	// construct and add Job into stack JOBS	
 		}
 	}
-	public float AWT(){
+	public float AWT(){	// computing AWT by divide TWT by Count(# of Jobs)
 		return (float)TWT/Count;
 	}
 	
