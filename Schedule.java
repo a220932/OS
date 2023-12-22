@@ -4,12 +4,12 @@ import java.util.Stack;
 import javax.swing.text.rtf.RTFEditorKit;
 
 class Job{
-	int num;
-	int arrive;
-	int burst;
-	int runtime;
-	int priority;
-	int order;
+	int num;	//第幾個Job
+	int arrive;	//抵達時間arrive time 
+	int burst;	//剩餘runtime
+	int runtime;	//預設runtime (reset用)
+	int priority;	//現在priority
+	int order;	//預設priority (reset用)
 	
 	Job(int num, int arr, int bur, int pri){
 		this.num = num;
