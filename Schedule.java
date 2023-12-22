@@ -4,26 +4,26 @@ import java.util.Stack;
 import javax.swing.text.rtf.RTFEditorKit;
 
 class Job{
-	int num;	//第幾個Job
-	int arrive;	//抵達時間arrive time 
-	int burst;	//剩餘runtime
-	int runtime;	//預設runtime (reset用)
-	int priority;	//現在priority
-	int order;	//預設priority (reset用)
+	int num;	// 第幾個Job
+	int arrive;	// 抵達時間arrive time 
+	int burst;	// 剩餘runtime
+	int runtime;	// 預設runtime (reset用)
+	int priority;	// 現在priority
+	int order;	// 預設priority (reset用)
 	
-	Job(int num, int arr, int bur, int pri){
+	Job(int num, int arr, int bur, int pri){	// class Job 建構子
 		this.num = num;
-		this.arrive = arr;
+		this.arrive = arr;	// set num, arrive
 		
 		this.burst = bur;
-		this.runtime = bur;
+		this.runtime = bur;	// set burst, runtime
 		
 		this.priority = pri;
-		this.order = pri;
+		this.order = pri;	// set priority, order
 		
 		System.out.print(">>Process " + num + ": (" + arr + ", " + bur + ", " + pri + ") was created.\n\n");
 	}
-	public void run(int rt, int Timer) {
+	public void run(int rt, int Timer) {	// 在時間Timer時，執行此 Job，持續rt時間單位 
 		System.out.print("Time: " + Timer + "~" + +(rt+Timer) + "\n");
 		System.out.print(">>Process " + num + " is running.\n");
 		this.burst -= rt;
@@ -36,10 +36,10 @@ class Job{
 }
 
 class Scheduling {
-	static int Timer;
-	static int TWT;
-	static int Count;
-	static Stack<Job> JOBS;
+	static int Timer;	// 計時器
+	static int TWT;		// 總等待時間 Total waiting time
+	static int Count;	// 工作數量 Job counter
+	static Stack<Job> JOBS;		// 儲存Jobs
 	private Scanner scanner;
 	
 	Scheduling(){
