@@ -67,7 +67,7 @@ class Scheduling {
 		return (float)TWT/Count;
 	}
 	
-	public static void reset() {
+	public static void reset() {	// reset Timer & TWT, reset all jobs by recovering burst and priority
 		Timer = 0;
 		TWT = 0;
 		for (Job job : JOBS) {
@@ -75,7 +75,7 @@ class Scheduling {
 			job.priority = job.order;
 		}
 	}
-	public void FCFS() {
+	public void FCFS() {	// Frist Come First Serve scheduling
 		reset();
 		Stack<Job> jobs = (Stack<Job>) JOBS.clone();
 		
@@ -97,7 +97,7 @@ class Scheduling {
 		System.out.print("AWT = " + this.AWT());
 	}
 	
-	public void SJFnp() {
+	public void SJFnp() {	// non-preemptive Shortest Job First scheduling
 		reset();
 		Stack<Job> jobs = (Stack<Job>) JOBS.clone();
 		
@@ -130,7 +130,7 @@ class Scheduling {
 	}
 	
 	
-	public void SJFp() {
+	public void SJFp() {	// preemptive Shortest Job First scheduling
 		reset();
 		Stack<Job> jobs = (Stack<Job>) JOBS.clone();
 		
@@ -172,7 +172,7 @@ class Scheduling {
 		
 		System.out.print("AWT = " + this.AWT());
 	}
-	public void Priority() {
+	public void Priority() {	// Priority scheduling
 		reset();
 		Stack<Job> jobs = (Stack<Job>) JOBS.clone();
 		
@@ -206,13 +206,13 @@ class Scheduling {
 		System.out.print("AWT = " + this.AWT());
 	}
 	
-	public void RR() {
+	public void RR() {	// Round-robin scheduling
 		reset();
 		Stack<Job> jobs = (Stack<Job>) JOBS.clone();
 		
 		System.out.print("\n\n\n<Round-Robin>\n\n");
 		System.out.print("Input RR's T = ");
-		int T = scanner.nextInt();
+		int T = scanner.nextInt();	// input time quantum
 		
 		while(!jobs.empty()){
 			for (int i = 0; i < jobs.size(); i++){
