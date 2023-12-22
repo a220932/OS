@@ -215,10 +215,12 @@ class Scheduling {
 		int T = scanner.nextInt();	// input time quantum
 		
 		while(!jobs.empty()){
+			boolean flag = true;
 			for (int i = 0; i < jobs.size(); i++){
 				Job job = jobs.elementAt(i); 
-				
-				
+				if (job.arrive > Timer)
+					continue;
+				flag = false;
 				int rt = Math.min(job.burst, T);
 				job.run(rt, Timer);
 				Timer += rt;
@@ -229,6 +231,8 @@ class Scheduling {
 					i--;
 				}
 			}
+			if (flag)
+				Timer = jobs.get(0).arrive;
 		}
 		
 		System.out.print("AWT = " + this.AWT());
